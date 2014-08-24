@@ -13,9 +13,13 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 You should create one R script called run_analysis.R that does the following.
 
 1.Merges the training and the test sets to create one data set.
+
 2.Extracts only the measurements on the mean and standard deviation for each measurement.
+
 3.Uses descriptive activity names to name the activities in the data set
+
 4.Appropriately labels the data set with descriptive activity names.
+
 5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 Solution
@@ -23,10 +27,15 @@ Solution
 To run the analysis, perform the following steps:
 
 Unzip all the files of Dataset.zip in your working directory. 
+
 Place the scripts run_analysis.R, analysis_functions.R and constants.R in your working directory.
+
 Load the source run_analysis.R at your session in R, with source("run_analysis.R")
+
 Finally, execute run.analysis() in R.
+
 Be sure to have installed the packages data.table, plyr and reshape2.
+
 Data_set_with_the_averages.txt is the final output txt file.
 
 

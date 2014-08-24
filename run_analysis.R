@@ -1,4 +1,5 @@
-# 1. Merges the training and the test sets to create one data set.
+#You should create one R script called run_analysis.R that does the following:
+# Merges the training and the test sets to create one data set.
 
 tmp1 <- read.table("train/X_train.txt")
 tmp2 <- read.table("test/X_test.txt")
@@ -12,7 +13,7 @@ tmp1 <- read.table("train/y_train.txt")
 tmp2 <- read.table("test/y_test.txt")
 Y <- rbind(tmp1, tmp2)
 
-# 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+# Extracts only the measurements on the mean and standard deviation for each measurement.
 
 features <- read.table("features.txt")
 indices_of_good_features <- grep("-mean\\(\\)|-std\\(\\)", features[, 2])
@@ -21,20 +22,20 @@ names(X) <- features[indices_of_good_features, 2]
 names(X) <- gsub("\\(|\\)", "", names(X))
 names(X) <- tolower(names(X))
 
-# 3. Uses descriptive activity names to name the activities in the data set.
+# Uses descriptive activity names to name the activities in the data set
 
 activities <- read.table("activity_labels.txt")
 activities[, 2] = gsub("_", "", tolower(as.character(activities[, 2])))
 Y[,1] = activities[Y[,1], 2]
 names(Y) <- "activity"
 
-# 4. Appropriately labels the data set with descriptive activity names.
+# 4. Appropriately labels the data set with descriptive activity names
 
 names(S) <- "subject"
 cleaned <- cbind(S, Y, X)
 write.table(cleaned, "merged_clean_data.txt")
 
-# 5. Creates a 2nd, independent tidy data set with the average of each variable for each activity and each subject.
+# 5. Creates a 2nd, independent tidy data set with the average of each variable for each activity and each subject
 
 uniqueSubjects = unique(S)[,1]
 numSubjects = length(unique(S)[,1])

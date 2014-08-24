@@ -29,13 +29,13 @@ activities[, 2] = gsub("_", "", tolower(as.character(activities[, 2])))
 Y[,1] = activities[Y[,1], 2]
 names(Y) <- "activity"
 
-# 4. Appropriately labels the data set with descriptive activity names
+# Appropriately labels the data set with descriptive activity names
 
 names(S) <- "subject"
 cleaned <- cbind(S, Y, X)
 write.table(cleaned, "merged_clean_data.txt")
 
-# 5. Creates a 2nd, independent tidy data set with the average of each variable for each activity and each subject
+# Creates a 2nd, independent tidy data set with the average of each variable for each activity and each subject
 
 uniqueSubjects = unique(S)[,1]
 numSubjects = length(unique(S)[,1])
